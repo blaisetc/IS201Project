@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Snake Game</title>
+<style>
+    /* Basic page styling */
+    body {
+        background: #222;
+        color: #eee;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        margin-top: 20px;
+        color: #f1c40f;
+    }
+
+    p {
+        margin-bottom: 20px;
+        font-size: 1.2em;
+    }
+
+    /* The container for the game canvas */
+    .game-container {
+        margin: 0 auto;
+        margin-top: 20px;
+        max-width: 600px;
+        text-align: center;
+    }
+
+    /* Canvas element for the snake game */
+    canvas {
+        background: #333;
+        display: block;
+        margin: 0 auto;
+        border: 2px solid #f1c40f;
+        border-radius: 5px;
+    }
+
+    .controls {
+        margin-top: 10px;
+        font-size: 0.9em;
+        color: #aaa;
+    }
+</style>
+</head>
+<body>
+    <h1>Snake Game</h1>
+    <p>Use the arrow keys to move the snake. Collect the food to grow longer!</p>
+    <div class="game-container">
+        <canvas id="game" width="600" height="400"></canvas>
+        <div class="controls">
+            <p>Controls: Use Arrow Keys or WASD to move. Refresh page to restart.</p>
+        </div>
+    </div>
+
+    <script>
+        // SNAKE GAME IMPLEMENTATION
+        // --------------------------
+        // Variables
+        const canvas = document.getElementById('game');
+        const ctx = canvas.getContext('2d');
+
+        // Game settings
+        const gridSize = 20; // Snake block size
+        const tileCountX = canvas.width / gridSize;
+        const tileCountY = canvas.height / gridSize;
+
+        let snakePosX = 10;
+        let snakePosY = 10;
+        let snakeVelX = 0;
+        let snakeVelY = 0;
+        
+        // The snake body will be an array of objects
+        let snakeBody = [];
+        let snakeLength = 5;
+
+        // Food position
+        let foodX = 15;
+        let foodY = 15;
+
+        // Score
+        let score = 0;
+
+        // Game loop
+        function gameLoop() {
+            // Move snake in its velocity direction
+            snakePosX += snakeVelX;
+            snakePosY += snakeVelY;
+
+            // Wrap snake around edges
+            if (snakePosX < 0) {
+                snakePosX = tileCountX - 1;
+            }
+            if (snakePosX > tileCountX - 1) {
+                snakePosX = 0;
+            }
+            if (snakePosY < 0) {
+                snakePosY = tileCountY - 1;
+            }
+            if (snakePosY > tileCountY - 1) {
+                snakePosY = 0;
+            }
+
+            // Draw background
+            ctx.fillStyle = '#333';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw food
+            ctx.fillStyle = '#e74c3c';
+            ctx.fillRect(foodX * gridSize, foodY * gridSize, gridSize - 2, gridSize - 2);
+
+            // Draw snake
+            ctx.fillStyle = '#f1c40f';
+            snakeBody.push({x: snakePosX, y: snakePosY});
+            // Ensure snake length
+            while (snakeBody.length > snakeLength) {
+                snakeBody.shift();
+            }
+
+            for (let i = 0; i < snakeBody.length; i++) {
+                let part = snakeBody[i];
+                ctx.fillRect(part.x * gridSize, part.y * gridSize, gridSize - 2, gridSize - 2);
+
+                // Check collision with self
+                if (part.x === snakePosX && part.y === snakePosY && i < snakeBody.length - 1) {
+                    // Game Over
+                    gameOver();
+                    return;
+                }
+            }
+
+            // Check if snake ate food
+            if (snakePosX === foodX && snakePosY === foodY) {
+                snakeLength++;
+                score++;
+                // Place food in random position
+                foodX = Math.floor(Math.random() * tileCountX);
+                foodY = Math.floor(Math.random() * tileCountY);
+            }
+
+            // Show score
+            ctx.fillStyle = '#fff';
+            ctx.font = '16px Arial';
+            ctx.fillText("Score: " + score, 10, 20);
+        }
+
+        function gameOver() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#fff';
+            ctx.font = '30px Arial';
+            ctx.fillText("Game Over!", canvas.width / 2 - 80, canvas.height / 2 - 20);
+            ctx.font = '20px Arial';
+            ctx.fillText("Final Score: " + score, canvas.width / 2 - 60, canvas.height / 2 + 20);
+            ctx.fillText("Refresh to Play Again", canvas.width / 2 - 80, canvas.height / 2 + 60);
+            clearInterval(interval); // Stop the game loop
+        }
+
+        // Set up input controls
+        document.addEventListener('keydown', keyPush);
+        function keyPush(evt) {
+            switch(evt.keyCode) {
+                case 37: // left arrow
+                case 65: // 'A'
+                    if (snakeVelX !== 1) {
+                        snakeVelX = -1; snakeVelY = 0;
+                    }
+                    break;
+                case 38: // up arrow
+                case 87: // 'W'
+                    if (snakeVelY !== 1) {
+                        snakeVelX = 0; snakeVelY = -1;
+                    }
+                    break;
+                case 39: // right arrow
+                case 68: // 'D'
+                    if (snakeVelX !== -1) {
+                        snakeVelX = 1; snakeVelY = 0;
+                    }
+                    break;
+                case 40: // down arrow
+                case 83: // 'S'
+                    if (snakeVelY !== -1) {
+                        snakeVelX = 0; snakeVelY = 1;
+                    }
+                    break;
+            }
+        }
+
+        // Start game loop
+        let interval = setInterval(gameLoop, 100);
+
+    </script>
+</body>
+</html>

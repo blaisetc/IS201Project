@@ -1,0 +1,168 @@
+/* 
+    Enhanced Stylesheet for a bodybuilding-themed website
+    Improvements added:
+    - Modern, bold color scheme with dark backgrounds and accent colors.
+    - Hover effects and transitions.
+    - Improved typography (consider importing a Google Font in your HTML).
+    - Additional styling for lists, headings, and embedded elements.
+*/
+
+/* Basic page settings */
+body {
+    /* Consider adding a Google font in the HTML head for even better typography */
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif; /* improved font family */
+    background: linear-gradient(180deg, #1c1c1c 0%, #2c2c2c 100%); /* subtle dark gradient background */
+    color: #eaeaea; /* lighter font color for contrast against dark background */
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation area styling */
+.nav-area {
+    background-color: #111;
+    padding: 1em;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.nav-area nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+
+.nav-area nav ul li {
+    display: inline-block;
+    margin: 0 1em;
+}
+
+.nav-area nav ul li a {
+    color: #f1c40f; /* gold accent color */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-area nav ul li a:hover {
+    color: #e74c3c; /* a red accent on hover */
+}
+
+/* Content area styling */
+.content-area {
+    padding: 2em;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/* Headings */
+h1, h2 {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif; /* consistent with body, but can stand out */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1em;
+}
+
+h1 {
+    color: #f1c40f;
+    font-size: 2.5em;
+}
+
+h2 {
+    color: #e74c3c;
+    font-size: 1.8em;
+}
+
+p {
+    line-height: 1.6;
+    font-size: 1.1em;
+    margin-bottom: 1em;
+}
+
+/* Images */
+img {
+    border: 3px solid #f1c40f;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    margin-bottom: 1em;
+}
+
+/* Video container */
+.video-container {
+    margin-bottom: 2em;
+    text-align: center;
+}
+
+.video-container iframe {
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+/* Lists (ordered and unordered) */
+ol, ul {
+    margin-left: 2em;
+}
+
+ol li {
+    margin-bottom: 0.5em;
+}
+
+ul li {
+    margin-bottom: 0.3em;
+}
+
+/* Links inside content */
+a {
+    color: #f1c40f;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #e74c3c;
+}
+
+/* Tableau area styling */
+.tableau-area {
+    padding: 2em;
+    background-color: #333;
+    max-width: 960px;
+    margin: 2em auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+}
+
+.tableau-area h2 {
+    margin-top: 0;
+}
+
+.tableauPlaceholder {
+    margin: 1em 0;
+}
+
+/* Additional details and decorative elements */
+hr {
+    border: none;
+    border-top: 1px solid #444;
+    margin: 2em 0;
+}
+
+/* Add a subtle hover effect to images (optional) */
+img:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .nav-area nav ul li {
+        display: block;
+        margin: 0.5em 0;
+        text-align: left;
+    }
+
+    iframe {
+        width: 100%;
+        height: auto;
+    }
+}

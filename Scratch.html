@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- 
+        Link to external stylesheet that you create from scratch.
+        This CSS file must include at least four style definitions, specify font color, 
+        font family, and styles for at least three divs.
+        Create a separate file named "styles.css" and place it in the same directory. 
+    -->
+    <link rel="stylesheet" href="css/fromscratch.css" />
+    <title>Bodybuilding: A Passionate Pursuit</title>
+</head>
+<body>
+      <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index.html">Blaise Carroll</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="Education.html">Education</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="Experience.html">Experience</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="Skills.html">Skills</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="Scratch.html">From Scratch</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    <!-- 
+        This is an anchor at the top of the page for internal linking.
+        We can link back to this using <a href="#top">Go to Top</a> somewhere else.
+    -->
+    <a id="top"></a>
+    
+    <!-- Start of first div: navigation area -->
+    <div class="nav-area">
+        <!-- 
+           
+        -->
+        <nav>
+            <ul>
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="Snakegame.html">Snake Game</a></li>
+                <!-- If you are a graduate student, uncomment the following line and ensure extra.html exists -->
+                <!-- <li><a href="extra.html">My Extra Graduate Student Page</a></li> -->
+            </ul>
+        </nav>
+    </div>
+    <!-- End of nav-area div -->
+
+    <!-- Start of second div: main content area -->
+    <div class="content-area">
+        <h1>Welcome to the World of Bodybuilding</h1>
+        <p>Bodybuilding is not just a sport; it’s a lifestyle dedicated to building muscle, strength, and confidence. 
+           Whether you're just starting out or aiming for professional competitions, consistency and dedication are key. Everyone starts from somewhere, the gym is all about progression. Set your goals high, acheive them, and become the person you want to be through hard work and effort. The reward is living a healthy happy life!</p>
+        
+        <!-- 
+            Here is where you can place an image not from Bootstrap.
+            Replace 'your-image.jpg' with the path or URL to your image.
+            You can also add an <img> alt attribute for accessibility.
+        -->
+        <img src="https://www.trainmag.com/wp-content/uploads/2017/08/Arnold-Schwarzenegger-Now-Hero.jpg" alt="A bodybuilder flexing muscles" width="300" />
+        <p><!-- Note: Customize this caption if needed --></p>
+        
+        <!-- 
+            Demonstration of an embedded video:
+            Find any YouTube video about bodybuilding and embed it below.
+            You can edit the src to any relevant YouTube video you like.
+        -->
+        <h2>Motivational Video</h2>
+        <div class="video-container">
+            <iframe width="560" height="315" 
+                src="https://www.youtube.com/embed/riWch046AqI?si=5AlMmKrkGZWmFFH1" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen></iframe>
+        </div>
+        
+        <!-- 
+            Ordered and Unordered lists:
+            Below is an example of an ordered list with an unordered list embedded.
+            You can edit the text accordingly.
+        -->
+        <h2>Steps to Starting Your Bodybuilding Journey</h2>
+        <ol>
+            <li>Set Clear Goals</li>
+            <li>Design a Workout Split
+                <ul>
+                    <li>Push/Pull/Legs</li>
+                    <li>Chest/Back/Arms & Shoulders/Legs</li>
+                    <li>Upper/Lower Split</li>
+                </ul>
+            </li>
+            <li>Train as hard and often as possible and stay consistent</li>
+            <li>Get on a clean diet. Track Macros for the best results</li>
+            <li>Journal, track, and photograph your progression</li>
+        </ol>
+        
+        <!-- 
+            On-page anchor link back to the top of the page.
+            Click this link to jump to the anchor we created at the top.
+        -->
+        <p><a href="#top">Back to Top</a></p>
+    </div>
+    <!-- End of content-area div -->
+
+    <!-- Start of third div: embedded Tableau visualization area -->
+    <div class="tableau-area">
+        <h2>Exercise Tracker</h2>
+        <!-- 
+            Embedded Tableau graph:
+            Go to Tableau Public and find a visualization you like. 
+            For demonstration purposes, here is a sample embed code. 
+            
+            Instructions:
+            1. Replace the "YOUR-VIZ-URL" with the actual Tableau Public embed URL you get from any public workbook.
+            2. Adjust width and height as needed.
+
+            A typical embed code from Tableau Public looks like this:
+            <div class='tableauPlaceholder' id='viz163...'>
+                <object class='tableauViz' width='100%' height='650' style='display:none;'>
+                    <param name='host_url' value='https://public.tableau.com/' />
+                    <param name='embed_code_version' value='3' />
+                    <param name='site_root' value='' />
+                    <param name='name' value='WORKBOOK-NAME/SHEET-NAME' />
+                    <param name='toolbar' value='yes' />
+                    <param name='showVizHome' value='no' />
+                </object>
+            </div>
+
+            Use a real embed code from a Tableau Public visualization. For now, a placeholder is shown.
+        -->
+        <div class='tableauPlaceholder' id='viz1734232117215' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;RZ&#47;RZRYK9372&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;RZRYK9372' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;RZ&#47;RZRYK9372&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1734232117215');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 600 ) { vizElement.style.width='980px';vizElement.style.height='1050px';} else if ( divElement.offsetWidth > 400 ) { vizElement.style.width='980px';vizElement.style.height='1050px';} else { vizElement.style.width='100%';vizElement.style.height='2500px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+        <!-- Be sure to include the Tableau JavaScript API library -->
+        <script type='text/javascript' src='https://public.tableau.com/javascripts/api/tableau.viz.v1.js'></script>
+        
+        <p><a href="#top">Back to Top</a></p>
+    </div>
+    <!-- End of tableau-area div -->
+</body>
+</html>
